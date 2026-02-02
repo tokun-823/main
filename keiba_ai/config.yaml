@@ -1,0 +1,201 @@
+# 競馬予測AI設定ファイル
+# 実験の再現性を確保するため、全ての設定を外部管理
+
+# =============================================================================
+# データ収集設定
+# =============================================================================
+scraping:
+  # スクレイピング間隔（秒）- サーバー負荷対策
+  sleep_time: 1.5
+  # リトライ回数
+  max_retries: 3
+  # タイムアウト（秒）
+  timeout: 30
+  # User-Agent設定
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  # 中断・再開機能
+  skip_existing: true
+
+# =============================================================================
+# データパス設定
+# =============================================================================
+paths:
+  # HTMLデータ保存先
+  html_race: "data/html/race"
+  html_horse: "data/html/horse"
+  html_jra_odds: "data/html/jra_odds"
+  html_pedigree: "data/html/pedigree"
+  html_leading: "data/html/leading"
+  # Raw/前処理済みデータ
+  raw_df: "data/raw_df"
+  preprocessed: "data/01_preprocessed"
+  # モデル保存先
+  models: "models"
+  # 結果出力先
+  results: "results"
+
+# =============================================================================
+# 特徴量設定
+# =============================================================================
+features:
+  # 使用する基本特徴量
+  base_features:
+    - "枠番"
+    - "馬番"
+    - "斤量"
+    - "馬体重"
+    - "体重増減"
+    - "性別"
+    - "年齢"
+    - "単勝オッズ"
+    - "人気"
+  
+  # 過去成績の集計対象（相対値化）
+  historical_stats:
+    - "着順"
+    - "賞金"
+    - "タイム指数"
+    - "上がり3F"
+  
+  # 集計方法
+  aggregation_methods:
+    - "mean"
+    - "max"
+    - "min"
+  
+  # 条件別集計
+  conditional_aggregations:
+    distance: true      # 同距離での成績
+    place: true         # 同競馬場での成績
+    race_type: true     # 芝/ダート別成績
+    course: true        # コース別
+  
+  # リーディング情報（前年度使用でリーク防止）
+  leading_info:
+    jockey: true        # 騎手成績
+    trainer: true       # 調教師成績
+    sire: true          # 種牡馬成績
+  
+  # 血統データ
+  pedigree:
+    use_sire: true      # 父馬成績
+    use_bms: true       # 母父成績
+    turf_dirt_split: true  # 芝/ダート別
+  
+  # 季節性特徴量
+  seasonality:
+    use_sin_cos: true   # sin/cos変換
+    month_encoding: true
+  
+  # 交互作用特徴量
+  interactions:
+    - ["season_cos", "sex"]           # 夏牝有利
+    - ["frame_number", "course_type"] # 枠順×コース
+    - ["distance", "running_style"]   # 距離×脚質
+  
+  # 脚質データ
+  running_style:
+    enabled: true
+    categories: ["逃げ", "先行", "差し", "追込"]
+
+# =============================================================================
+# モデル学習設定
+# =============================================================================
+model:
+  # LightGBMパラメータ
+  lgb_params:
+    objective: "binary"
+    metric: "binary_logloss"
+    boosting_type: "gbdt"
+    num_leaves: 32
+    learning_rate: 0.05
+    feature_fraction: 0.8
+    bagging_fraction: 0.8
+    bagging_freq: 5
+    min_child_samples: 20
+    lambda_l1: 0.1
+    lambda_l2: 0.1
+    verbose: -1
+    random_state: 42
+  
+  # 学習設定
+  training:
+    num_boost_round: 10000
+    early_stopping_rounds: 100
+    verbose_eval: 100
+  
+  # データ分割設定（時系列考慮）
+  data_split:
+    # 学習データ終了日
+    train_end: "2023-12-31"
+    # 検証データ期間
+    valid_start: "2024-01-01"
+    valid_end: "2024-06-30"
+    # テストデータ開始日
+    test_start: "2024-07-01"
+  
+  # 目的変数の設定（精度向上の鍵）
+  target:
+    # 1着のみを正例とするか、惜敗馬も含めるか
+    include_close_second: true
+    # 含める2着のタイム差閾値（秒）
+    time_diff_threshold: 0.0
+
+# =============================================================================
+# シミュレーション・購入戦略設定
+# =============================================================================
+simulation:
+  # 足切り設定（低確率データ除外）
+  threshold:
+    min_probability: 0.01
+  
+  # 各券種の期待値閾値
+  expected_value_thresholds:
+    単勝: 1.5
+    複勝: 1.2
+    馬連: 3.0
+    馬単: 4.0
+    ワイド: 2.0
+    三連複: 5.0
+    三連単: 8.0
+  
+  # ボックス買い設定
+  box_purchase:
+    top_n: [3, 4, 5]  # 上位N頭
+
+# =============================================================================
+# リアルタイム運用設定
+# =============================================================================
+realtime:
+  # オッズ取得タイミング（発走何分前）
+  odds_fetch_minutes_before: 6
+  # 予測実行タイミング（発走何分前）
+  prediction_minutes_before: 4.5
+  # JRAサイトURL
+  jra_base_url: "https://www.jra.go.jp"
+
+# =============================================================================
+# レースクラス分類設定
+# =============================================================================
+race_class:
+  # クラスの優先度順（高い順）
+  priority:
+    - "G1"
+    - "G2"
+    - "G3"
+    - "L"        # リステッド
+    - "OP"       # オープン
+    - "3勝クラス"
+    - "2勝クラス"
+    - "1勝クラス"
+    - "新馬"
+    - "未勝利"
+  
+  # 表記揺れ対応
+  mapping:
+    "１勝クラス": "1勝クラス"
+    "２勝クラス": "2勝クラス"
+    "３勝クラス": "3勝クラス"
+    "500万下": "1勝クラス"
+    "1000万下": "2勝クラス"
+    "1600万下": "3勝クラス"
