@@ -1,0 +1,79 @@
+=======================================================================
+  競輪予測AI「パソ子」インストールガイド
+=======================================================================
+
+【必要環境】
+- Python 3.7以上
+- pip（Pythonパッケージマネージャー）
+- メモリ: 4GB以上推奨
+- ストレージ: 1GB以上
+
+【インストール手順】
+
+1. アーカイブを解凍
+   $ tar -xzf keirin_ai_pasuko.tar.gz
+   $ cd keirin_ai_pasuko
+
+2. 必要なライブラリをインストール
+   $ pip install -r requirements.txt
+
+3. 動作確認
+   $ python main.py
+
+4. 出力ファイルの確認
+   $ ls -lh output/
+   $ ls -lh models/
+
+【ファイル構成】
+keirin_ai_pasuko/
+├── config.py              設定ファイル
+├── data_processing.py     データ処理モジュール
+├── model.py              機械学習モデル
+├── prediction.py         予測・指標算出
+├── output_generator.py   出力・可視化
+├── main.py               メインスクリプト
+├── examples.py           使用例集
+├── quickstart.py         クイックスタート
+├── README.md             詳細ドキュメント
+├── PROJECT_SUMMARY.md    プロジェクトサマリー
+├── requirements.txt      必要ライブラリ
+└── INSTALL.txt           このファイル
+
+【クイックスタート】
+
+Python対話モードで:
+  >>> from main import PasukoAI
+  >>> pasuko = PasukoAI()
+  >>> predictions = pasuko.run_full_pipeline('sample', is_excel=False)
+
+コマンドラインで:
+  $ python main.py
+
+【出力ファイル】
+- output/pasuko_predictions_summary.xlsx  サマリー
+- output/pasuko_predictions_detail.xlsx   詳細
+- output/pasuko_statistics.xlsx           統計
+- output/pasuko_zone_distribution.png     グラフ
+
+【モデルファイル】
+- models/*.pkl                            学習済みモデル
+
+【トラブルシューティング】
+
+Q: ライブラリのインストールに失敗する
+A: pipを最新版にアップデート
+   $ pip install --upgrade pip
+
+Q: 日本語が文字化けする
+A: システムロケールを確認、または出力をUTF-8で保存
+
+Q: メモリ不足エラー
+A: データ量を減らすか、カテゴリごとに分割実行
+
+Q: モデルの精度が低い
+A: 学習データ量を増やす、特徴量を追加、ハイパーパラメータ調整
+
+【サポート】
+詳細はREADME.mdを参照してください。
+
+=======================================================================

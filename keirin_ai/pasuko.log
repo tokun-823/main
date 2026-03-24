@@ -1,0 +1,77 @@
+2026-03-08 17:24:11,510 [INFO] KeirinScraper 初期化完了  output_dir=./scraped_data  resume=True
+2026-03-08 17:24:11,511 [INFO] ============================================================
+2026-03-08 17:24:11,511 [INFO]  全期間データ収集 開始: 2018年 〜 2025年
+2026-03-08 17:24:11,511 [INFO] ============================================================
+2026-03-08 17:24:11,511 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 17:24:11,512 [INFO]   2018年 データ収集開始
+2026-03-08 17:24:11,512 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 17:24:11,619 [WARNING]   [1/3] リクエスト失敗: HTTPSConnectionPool(host='www.gamboo.jp', port=443): Max retries exceeded with url: /keirin/calendar/201801/20180101/ (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gamboo.jp'. (_ssl.c:997)")))  URL: https://www.gamboo.jp/keirin/calendar/201801/20180101/
+2026-03-08 17:24:16,666 [WARNING]   [2/3] リクエスト失敗: HTTPSConnectionPool(host='www.gamboo.jp', port=443): Max retries exceeded with url: /keirin/calendar/201801/20180101/ (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gamboo.jp'. (_ssl.c:997)")))  URL: https://www.gamboo.jp/keirin/calendar/201801/20180101/
+2026-03-08 17:24:21,717 [WARNING]   [3/3] リクエスト失敗: HTTPSConnectionPool(host='www.gamboo.jp', port=443): Max retries exceeded with url: /keirin/calendar/201801/20180101/ (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gamboo.jp'. (_ssl.c:997)")))  URL: https://www.gamboo.jp/keirin/calendar/201801/20180101/
+2026-03-08 17:24:21,718 [ERROR]   全リトライ失敗: https://www.gamboo.jp/keirin/calendar/201801/20180101/
+2026-03-08 17:24:23,280 [WARNING]   [1/3] リクエスト失敗: HTTPSConnectionPool(host='www.gamboo.jp', port=443): Max retries exceeded with url: /keirin/calendar/201801/20180102/ (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gamboo.jp'. (_ssl.c:997)")))  URL: https://www.gamboo.jp/keirin/calendar/201801/20180102/
+2026-03-08 17:34:24,240 [INFO] KeirinScraper 初期化完了  output_dir=./scraped_data  resume=True
+2026-03-08 17:34:24,241 [INFO] ============================================================
+2026-03-08 17:34:24,241 [INFO]  全期間データ収集 開始: 2018年 〜 2025年
+2026-03-08 17:34:24,241 [INFO] ============================================================
+2026-03-08 17:34:24,241 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 17:34:24,241 [INFO]   2018年 データ収集開始
+2026-03-08 17:34:24,242 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 17:34:24,416 [WARNING]   [1/3] リクエスト失敗: HTTPSConnectionPool(host='www.gamboo.jp', port=443): Max retries exceeded with url: /keirin/calendar/201801/20180101/ (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gamboo.jp'. (_ssl.c:997)")))  URL: https://www.gamboo.jp/keirin/calendar/201801/20180101/
+2026-03-08 17:34:29,484 [WARNING]   [2/3] リクエスト失敗: HTTPSConnectionPool(host='www.gamboo.jp', port=443): Max retries exceeded with url: /keirin/calendar/201801/20180101/ (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gamboo.jp'. (_ssl.c:997)")))  URL: https://www.gamboo.jp/keirin/calendar/201801/20180101/
+2026-03-08 17:44:57,892 [INFO] KeirinScraper 初期化完了  output_dir=./scraped_data  resume=True
+2026-03-08 17:44:57,893 [INFO] ============================================================
+2026-03-08 17:44:57,893 [INFO]  全期間データ収集 開始: 2018年 〜 2025年
+2026-03-08 17:44:57,893 [INFO] ============================================================
+2026-03-08 17:44:57,893 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 17:44:57,893 [INFO]   2018年 データ収集開始
+2026-03-08 17:44:57,893 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 17:55:14,627 [ERROR] scraper.py のインポートに失敗しました: No module named 'tqdm'
+2026-03-08 17:55:14,627 [ERROR] pip install requests beautifulsoup4 lxml を実行してください
+2026-03-08 18:07:52,867 [INFO] KeirinScraper 初期化完了  output_dir=./scraped_data  resume=True
+2026-03-08 18:07:52,867 [INFO] ============================================================
+2026-03-08 18:07:52,868 [INFO]  全期間データ収集 開始: 2018年 〜 2025年
+2026-03-08 18:07:52,868 [INFO] ============================================================
+2026-03-08 18:07:52,868 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 18:07:52,868 [INFO]   2018年 データ収集開始
+2026-03-08 18:07:52,868 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 18:17:22,086 [INFO]   2018年: 取得データなし（全てスキップ済み or 取得失敗）
+2026-03-08 18:17:22,086 [WARNING]   2018年 データなし（スキップ）
+2026-03-08 18:17:22,086 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 18:17:22,086 [INFO]   2019年 データ収集開始
+2026-03-08 18:17:22,086 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 18:26:51,926 [INFO]   2019年: 取得データなし（全てスキップ済み or 取得失敗）
+2026-03-08 18:26:51,927 [WARNING]   2019年 データなし（スキップ）
+2026-03-08 18:26:51,927 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 18:26:51,927 [INFO]   2020年 データ収集開始
+2026-03-08 18:26:51,927 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 18:36:24,127 [INFO]   2020年: 取得データなし（全てスキップ済み or 取得失敗）
+2026-03-08 18:36:24,127 [WARNING]   2020年 データなし（スキップ）
+2026-03-08 18:36:24,127 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 18:36:24,127 [INFO]   2021年 データ収集開始
+2026-03-08 18:36:24,128 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 18:45:56,987 [INFO]   2021年: 取得データなし（全てスキップ済み or 取得失敗）
+2026-03-08 18:45:56,987 [WARNING]   2021年 データなし（スキップ）
+2026-03-08 18:45:56,987 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 18:45:56,987 [INFO]   2022年 データ収集開始
+2026-03-08 18:45:56,987 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 18:55:26,714 [INFO]   2022年: 取得データなし（全てスキップ済み or 取得失敗）
+2026-03-08 18:55:26,716 [WARNING]   2022年 データなし（スキップ）
+2026-03-08 18:55:26,716 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 18:55:26,716 [INFO]   2023年 データ収集開始
+2026-03-08 18:55:26,716 [INFO] ────────────────────────────────────────────────────────────
+2026-03-08 19:04:54,716 [INFO]   2023年: 取得データなし（全てスキップ済み or 取得失敗）
+2026-03-08 19:04:54,717 [WARNING]   2023年 データなし（スキップ）
+2026-03-08 19:04:54,717 [INFO] 
+────────────────────────────────────────────────────────────
+2026-03-08 19:04:54,717 [INFO]   2024年 データ収集開始
+2026-03-08 19:04:54,717 [INFO] ────────────────────────────────────────────────────────────
